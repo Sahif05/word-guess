@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div>
+        <h1>Word Guessing Game</h1>
+        <h4 id="directions-text">Press the button to begin</h4>
+        <b>button</b>
+        <p>Wins:</p>
+        <p>Number of Guesses Remaining:</p>
+        <p>Letters Already Guessed</p>
+        <p></p>
+    </div>
+
+    <P id="score"></P>
+    <script>
+
+        var questions = [
+                {q: "_ _ _ _ _", a1:"a", a2:"p", a3:"p", a4:"l", a5:"e"}, {q: "_ _ _ _ _ _", a1:"b", a2:"l", a3:"o", a4:"n", a5:"d", a6:"e"}, {q: "_ _ _ _", a1:"r", a2:"a", a3:"c", a4:"e"}
+            ]
+            var score = 0;
+            var wins = 0;
+            var guessesRemain = 10;
+            var lettersGuessed = "";
+            
+
+            function renderQuestion() {
+            if (questionIndex <= (questions.length - 1)) {
+                document.querySelector("#question").innerHTML = questions[questionIndex].q;
+            }
+            else {
+                document.querySelector("#question").innerHTML = "Game Over!";
+                document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + questions.length;
+            }
+            }
+
+            function updateScore() {
+                document.querySelector("#score").innerHTML = "Score: " + score;
+            }
+
+            renderQuestion();
+            updateScore();
+            document.onkeyup = function(event) {
+            var userGuess = event.key;
+
+            directionsText.textContent = "";
+
+            if (questionIndex === questions.length) {
+                return;
+            }
+
+            if (userGuess === questions[questionIndex].a){
+                
+            }
+            
+        }
+
+    </script>
+
+    
+</body>
+</html>
