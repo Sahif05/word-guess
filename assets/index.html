@@ -25,8 +25,13 @@
 
     var computerChoices = ["statement", "sulky", "spell", "x-ray", "square", "taste", "great", "thumb", "adjoining", "chilly", "test", "ancient", "green", "badge", "work", "repeat", "free", "elderly", "doctor", "difficult", "grubby", "approval", "turn", "vivacious", "thundering", "cherries", "rest", "plan", "crime", "sticks", "wealthy", "phone", "suspend", "gullible", "fence", "note", "wall", "interest", "coil", "jump", "enchanted", "funny", "racial", "greasy", "polish", "elbow", "smart", "bore", "crowd", "glistening", "oval", "eggs", "nauseating", "detailed", "veil", "coal"];
 
-    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    console.log = (computerGuess)
+    var getRandomWord = function(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+var computerChoices = getRandomWord(computerChoices);
+console.log('randomWord', computerChoices);
+
 
     </script>
 </body>
