@@ -13,6 +13,7 @@
         <br>
         <p>guess what letter I am Thinking Of...</p>
         <p>choose wisley...</p>
+        <p>click any letter from a-z to get started</p>
         <p id="wins-text"></p>
         <p id="losses-text"></p>
         <p id="guesses-num"></p>
@@ -44,7 +45,7 @@
         console.log(userGuess);
         console.log(computerGuess);
         
-        if( userGuess === "a"|| userGuess === "b"){
+        if( userGuess === "a" || userGuess === "b"|| userGuess === "c"|| userGuess === "d"|| userGuess === "e"|| userGuess === "f"|| userGuess === "g"|| userGuess === "h"|| userGuess === "i"|| userGuess === "j"|| userGuess === "k"|| userGuess === "l"|| userGuess === "m"|| userGuess === "n"|| userGuess === "o"|| userGuess === "p"|| userGuess === "q"|| userGuess === "r"|| userGuess === "s"|| userGuess === "t"|| userGuess === "u"|| userGuess === "v"|| userGuess === "w"|| userGuess === "x"|| userGuess === "y"|| userGuess === "z"){
             if(userGuess === computerGuess){
                 wins++
             }
@@ -54,11 +55,8 @@
             }
             
             if(num === 0){
-                game.style.backgroundColor = "black"
-                game.style.color = "white"
-                game.textContent = "GAME OVER"
-                game.style.padding = 0
-                const myTimeout = setTimeout(refresh, 2000);
+                const myTimeout = setTimeout(refresh, 0);
+                alert("congrats, you lost!. click OK if you want to lose again")
             }
 
             entryText.textContent = "You chose: " + userGuess;
