@@ -13,26 +13,44 @@
         <p>choose wisley...</p>
         <p id="wins-text"></p>
         <p id="losses-text"></p>
-        <p id="guesses"></p>
+        <p id="guesses-num"></p>
+        <p id="guesses-entry"></p>
     </div>
     <script type="text/javascript">
         var wins = 0;
         var losses = 0;
+        var num = 10;
+        var entry = "";
 
-        var guessesText = document.getElementById("guesses");
         var winsText = document.getElementById("wins-text");
         var lossesText = document.getElementById("losses-text");
+        var numText = document.getElementById("guesses-num")
+        var entryText = document.getElementById("guesses-entry")
 
-    var computerChoices = ["statement", "sulky", "spell", "x-ray", "square", "taste", "great", "thumb", "adjoining", "chilly", "test", "ancient", "green", "badge", "work", "repeat", "free", "elderly", "doctor", "difficult", "grubby", "approval", "turn", "vivacious", "thundering", "cherries", "rest", "plan", "crime", "sticks", "wealthy", "phone", "suspend", "gullible", "fence", "note", "wall", "interest", "coil", "jump", "enchanted", "funny", "racial", "greasy", "polish", "elbow", "smart", "bore", "crowd", "glistening", "oval", "eggs", "nauseating", "detailed", "veil", "coal"];
+    var computerChoices = ["statement", "sulky", "spell", "square", "taste", "great", "thumb", "adjoining", "chilly", "test", "ancient", "green", "badge", "work", "repeat", "free", "elderly", "doctor", "difficult", "grubby", "approval", "turn", "vivacious", "thundering", "cherries", "rest", "plan", "crime", "sticks", "wealthy", "phone", "suspend"];
 
-    var getRandomWord = function(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
+document.getElementById("wins-text").textContent = "wins: " + wins;
+document.getElementById("losses-text").textContent = "losses: " + losses;
+document.getElementById("guesses-num").textContent = "remaining guesses: " + num;
+document.getElementById("guesses-entry").textContent = "your guesses: " + entry;
 
-var computerChoices = getRandomWord(computerChoices);
-console.log('randomWord', computerChoices);
+document.onkeyup = function(event) {
+    var userGuess = event.key
+
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+    if((userGuess==="statement")||(userGuess==="")||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess===""||(userGuess==="")) ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ){
+    if(userGuess===computerChoices){
+        wins++
+    }
+    else{
+        losses--
+    }
+
+    }
+} 
 
 
-    </script>
+</script>
 </body>
 </html>
