@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
+    <div id="game">
         <h1>the Physic Game</h1>
         <p>guess what letter I am Thinking Of...</p>
         <p>choose wisley...</p>
@@ -15,6 +15,7 @@
         <p id="losses-text"></p>
         <p id="guesses-num"></p>
         <p id="guesses-entry"></p>
+        <p id="comp-entry"></p>
     </div>
     <script type="text/javascript">
         var wins = 0;
@@ -26,29 +27,46 @@
         var lossesText = document.getElementById("losses-text");
         var numText = document.getElementById("guesses-num")
         var entryText = document.getElementById("guesses-entry")
+        var computerChoices = document.getElementById("comp-entry")
+        var game = document.getElementById("game")
 
-    var computerChoices = ["statement", "sulky", "spell", "square", "taste", "great", "thumb", "adjoining", "chilly", "test", "ancient", "green", "badge", "work", "repeat", "free", "elderly", "doctor", "difficult", "grubby", "approval", "turn", "vivacious", "thundering", "cherries", "rest", "plan", "crime", "sticks", "wealthy", "phone", "suspend"];
+    var computerSelection = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
-document.getElementById("wins-text").textContent = "wins: " + wins;
-document.getElementById("losses-text").textContent = "losses: " + losses;
-document.getElementById("guesses-num").textContent = "remaining guesses: " + num;
-document.getElementById("guesses-entry").textContent = "your guesses: " + entry;
-
-document.onkeyup = function(event) {
-    var userGuess = event.key
-
-    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-    if((userGuess==="statement")||(userGuess==="")||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess===""||(userGuess==="")) ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ||(userGuess==="") ){
-    if(userGuess===computerChoices){
-        wins++
+    
+    function refresh() {
+     window.location.reload();
     }
-    else{
-        losses--
-    }
+    document.onkeyup = function(event) {
+        var userGuess = event.key.toLowerCase();
+        var computerGuess = computerSelection[Math.floor(Math.random() * computerSelection.length)];
+        console.log(userGuess);
+        console.log(computerGuess);
+        
+        if( userGuess === "a"|| userGuess === "b"){
+            if(userGuess === computerGuess){
+                wins++
+            }
+            else{
+                losses++
+                num--
+            }
+            
+            if(num === 0){
+                game.style.backgroundColor = "red"
+                game.style.color = "white"
+                game.textContent = "GAME OVER"
+                const myTimeout = setTimeout(refresh, 2000);
+            }
 
-    }
-} 
+            entryText.textContent = "You chose: " + userGuess;
+            document.getElementById("comp-entry").textContent = "My guesses: " + computerGuess;
+            document.getElementById("wins-text").textContent = "wins: " + wins;
+            document.getElementById("losses-text").textContent = "losses: " + losses;
+            document.getElementById("guesses-num").textContent = "remaining guesses: " + num;
+        }else{
+            alert("it must be a trough z, like amazon")
+        }
+    } 
 
 
 </script>
