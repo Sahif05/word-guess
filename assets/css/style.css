@@ -1,3 +1,10 @@
 body{
-    background: url();
+    background: url(https://www.toptal.com/designers/subtlepatterns/uploads/oriental.png);
+    color: black;
+    text-align: center;
+}
+
+.game{
+    color: black;
+    background-color: white;
 }

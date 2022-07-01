@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <div id="game">
         <h1>the Physic Game</h1>
+        <br>
         <p>guess what letter I am Thinking Of...</p>
         <p>choose wisley...</p>
         <p id="wins-text"></p>
@@ -52,9 +54,10 @@
             }
             
             if(num === 0){
-                game.style.backgroundColor = "red"
+                game.style.backgroundColor = "black"
                 game.style.color = "white"
                 game.textContent = "GAME OVER"
+                game.style.padding = 0
                 const myTimeout = setTimeout(refresh, 2000);
             }
 
@@ -64,7 +67,7 @@
             document.getElementById("losses-text").textContent = "losses: " + losses;
             document.getElementById("guesses-num").textContent = "remaining guesses: " + num;
         }else{
-            alert("it must be a trough z, like amazon")
+            alert("it must be a through z, like amazon")
         }
     } 
 
